@@ -1,0 +1,38 @@
+typedef long long int ll;
+int Solution::solve(vector<int> &a) {
+    ll n=a.size(),p=0,q=0;
+for(int i=0;i<n;i++){
+    if(i%2==0){
+        p+=a[i];
+    }
+    else{
+        q+=a[i];
+    }
+}
+ll ans=0,x=0,y=0;
+for(int i=0;i<n;i++){
+    ll x1=0,y1=1;
+    if(i%2==0){
+        p-=a[i];
+    }
+    else{
+        q-=a[i];
+    }
+    
+    x1=x+q;
+    y1=y+p;
+
+    if(x1==y1){
+        ans++;
+    }
+    
+    if(i%2==0){
+        x+=a[i];
+    }
+    else{
+        y+=a[i];
+    }
+    
+}
+return ans;
+}
