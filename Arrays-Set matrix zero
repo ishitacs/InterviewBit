@@ -1,0 +1,26 @@
+void Solution::setZeroes(vector<vector<int> > &A) {
+    // Do not write main() function.
+    // Do not read input, instead use the arguments to the function.
+    // Do not print the output, instead return values as specified
+    // Still have a doubt. Checkout www.interviewbit.com/pages/sample_codes/ for more details
+    unordered_set<int>mc;
+    unordered_set<int>mr;
+    for(int r=0;r<A.size();r++)
+    {
+        for(int c=0;c<A[0].size();c++)
+        {
+            if(A[r][c]==0){mc.insert(c); mr.insert(r);}
+        }
+    }
+    for(int c:mc)
+    {
+        for(int r=0;r<A.size();r++)
+        {A[r][c]=0;}
+    }
+    for(int r:mr)
+    {
+        for(int c=0;c<A[0].size();c++)
+        {
+            A[r][c]=0;
+        }
+    }
